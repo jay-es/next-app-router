@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`prose max-w-none ${inter.className}`}>{children}</body>
     </html>
   );
 }
