@@ -1,4 +1,5 @@
 {
+  "cSpell.words": ["daisyui", "jsonplaceholder", "tailwindcss"],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },

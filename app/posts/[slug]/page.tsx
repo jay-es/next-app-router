@@ -1,8 +1,9 @@
 import { getPost, getUser } from '@jay-es/jsonplaceholder-client';
 import Link from 'next/link';
+import type { PageProps } from './types';
 
-export default async function Post({ params }) {
-  const postId = parseInt(params.slug, 10);
+export default async function Post({ params }: PageProps) {
+  const postId = Number(params.slug);
   const post = await getPost(postId);
   const author = await getUser(post.userId);
 

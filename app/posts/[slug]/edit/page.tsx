@@ -1,9 +1,10 @@
 import { getPost } from '@jay-es/jsonplaceholder-client';
 import Link from 'next/link';
 import { Form } from './Form';
+import type { PageProps } from '../types';
 
-export default async function PostEdit({ params }) {
-  const postId = parseInt(params.slug, 10);
+export default async function PostEdit({ params }: PageProps) {
+  const postId = Number(params.slug);
   const post = await getPost(postId);
 
   return (
