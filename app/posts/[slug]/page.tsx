@@ -1,6 +1,15 @@
 import { getPost, getUser } from '@jay-es/jsonplaceholder-client';
 import Link from 'next/link';
 import type { PageProps } from './types';
+import type { Metadata } from 'next';
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  return {
+    title: `Post #${params.slug}`,
+  };
+}
 
 export default async function Post({ params }: PageProps) {
   const postId = Number(params.slug);

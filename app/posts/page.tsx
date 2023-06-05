@@ -1,5 +1,10 @@
 import { getPosts, getUsers } from '@jay-es/jsonplaceholder-client';
+import type { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Posts',
+};
 
 export default async function Posts() {
   const [posts, users] = await Promise.all([getPosts(), getUsers()]);
