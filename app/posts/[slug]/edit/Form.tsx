@@ -2,7 +2,8 @@
 
 import { type Post, patchPost } from '@jay-es/jsonplaceholder-client';
 import { useRouter } from 'next/navigation';
-import { FC, FormEventHandler, useState } from 'react';
+import type { FC, FormEventHandler } from 'react';
+import { useState } from 'react';
 
 export const Form: FC<{ post: Post }> = ({ post }) => {
   const router = useRouter(); // useRouter only works in Client Components.
@@ -21,7 +22,7 @@ export const Form: FC<{ post: Post }> = ({ post }) => {
       <fieldset>
         <legend>title</legend>
         <input
-          className="input input-bordered w-full"
+          className="input-bordered input w-full"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
@@ -30,7 +31,7 @@ export const Form: FC<{ post: Post }> = ({ post }) => {
       <fieldset>
         <legend>body</legend>
         <textarea
-          className="textarea textarea-bordered w-full"
+          className="textarea-bordered textarea w-full"
           value={body}
           rows={6}
           onChange={(e) => setBody(e.target.value)}
@@ -38,7 +39,7 @@ export const Form: FC<{ post: Post }> = ({ post }) => {
       </fieldset>
 
       <div>
-        <button className="btn btn-sm btn-primary" type="submit">
+        <button className="btn-primary btn-sm btn" type="submit">
           save
         </button>
       </div>
