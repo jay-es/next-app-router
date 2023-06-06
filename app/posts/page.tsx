@@ -13,7 +13,7 @@ export default async function Posts() {
     users.find(({ id }) => id === userId)?.name;
 
   return (
-    <main>
+    <>
       <h1>Posts</h1>
       <table>
         <thead>
@@ -37,6 +37,6 @@ export default async function Posts() {
           ))}
         </tbody>
       </table>
-    </main>
+    </>
   );
 }

@@ -13,9 +13,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const baseStyles = 'prose max-w-none overflow-y-scroll';
+  const layoutStyles = 'grid min-h-screen grid-rows-[1fr_auto]';
+
   return (
     <html lang="en">
-      <body className={`prose max-w-none ${inter.className}`}>{children}</body>
+      <body className={`${baseStyles} ${layoutStyles} ${inter.className}`}>
+        <main>{children}</main>
+        <footer className="text-center">&copy;jay-es</footer>
+      </body>
     </html>
   );
 }

@@ -17,7 +17,7 @@ export default async function Post({ params }: PageProps) {
   const author = await getUser(post.userId);
 
   return (
-    <main>
+    <>
       <h1>{post.title}</h1>
       <h2 className="-mt-6">by: {author.name}</h2>
       <p>{post.body}</p>
@@ -26,6 +26,6 @@ export default async function Post({ params }: PageProps) {
         <Link href={`/posts`}>&lt; back</Link>
         <Link href={`/posts/${postId}/edit`}>edit</Link>
       </div>
-    </main>
+    </>
   );
 }
