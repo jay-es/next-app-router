@@ -13,6 +13,9 @@ export default function Home() {
         <li>
           <Link href={`/posts`}>Posts</Link>
         </li>
+        <li>
+          <Link href={`/counter`}>Counter</Link>
+        </li>
       </ul>
     </>
   );

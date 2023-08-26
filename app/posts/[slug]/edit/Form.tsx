@@ -1,24 +1,21 @@
 'use client';
 
 import { type Post, patchPost } from '@jay-es/jsonplaceholder-client';
-import { useRouter } from 'next/navigation';
-import type { FC, FormEventHandler } from 'react';
+import type { FC } from 'react';
 import { useState } from 'react';
+import { action } from './action';
 
 export const Form: FC<{ post: Post }> = ({ post }) => {
-  const router = useRouter(); // useRouter only works in Client Components.
   const [title, setTitle] = useState(post.title);
   const [body, setBody] = useState(post.body);
 
-  const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
     await patchPost(post.id, { title, body });
-
-    router.push(`/posts/${post.id}`);
+    await action(`/posts/${post.id}`);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form action={handleSubmit}>
       <fieldset>
         <legend>title</legend>
         <input
