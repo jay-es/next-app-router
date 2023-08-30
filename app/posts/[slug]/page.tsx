@@ -3,9 +3,7 @@ import Link from 'next/link';
 import type { PageProps } from './types';
 import type { Metadata } from 'next';
 
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
+export function generateMetadata({ params }: PageProps): Metadata {
   return {
     title: `Post #${params.slug}`,
   };

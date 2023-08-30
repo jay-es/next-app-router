@@ -4,9 +4,7 @@ import { Form } from './Form';
 import type { PageProps } from '../types';
 import type { Metadata } from 'next';
 
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
+export function generateMetadata({ params }: PageProps): Metadata {
   return {
     title: `Edit: Post #${params.slug}`,
   };
