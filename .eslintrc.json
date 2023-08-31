@@ -3,6 +3,7 @@
     "next/core-web-vitals",
     "plugin:@typescript-eslint/strict",
     "plugin:@typescript-eslint/stylistic-type-checked",
+    "@jay-es/nextjs-no-default-export",
     "prettier"
   ],
   "parserOptions": {
