@@ -1,6 +1,7 @@
 import { revalidatePath } from 'next/cache';
 import { TransitionButton } from './transition-button';
 import { Form } from './form';
+import { OptimisticButton } from './optimistic-button';
 
 let count = 0;
 
@@ -15,7 +16,7 @@ export default function Counter() {
     revalidatePath('/counter');
 
     // （revalidatePath の直後ではなく）このウェイトが終わってから更新される
-    await new Promise((resolve) => setTimeout(resolve, 300));
+    await new Promise((resolve) => setTimeout(resolve, 400));
   };
 
   return (
@@ -25,6 +26,7 @@ export default function Counter() {
       <div className="space-y-2">
         <Form addCount={addCount} />
         <TransitionButton addCount={addCount} />
+        <OptimisticButton count={count} addCount={addCount} />
       </div>
     </>
   );
