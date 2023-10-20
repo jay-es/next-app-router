@@ -1,4 +1,6 @@
 import { revalidatePath } from 'next/cache';
+import { TransitionButton } from './transition-button';
+import { Form } from './form';
 
 let count = 0;
 
@@ -11,17 +13,19 @@ export default function Counter() {
 
     // これがないとリロードするまで表示が更新されない
     revalidatePath('/counter');
+
+    // （revalidatePath の直後ではなく）このウェイトが終わってから更新される
+    await new Promise((resolve) => setTimeout(resolve, 300));
   };
 
   return (
     <>
       <h1>Counter</h1>
-      <form action={addCount}>
-        <p>{count}</p>
-        <button className="btn-primary btn-sm btn" type="submit">
-          +1
-        </button>
-      </form>
+      <p>{count}</p>
+      <div className="space-y-2">
+        <Form addCount={addCount} />
+        <TransitionButton addCount={addCount} />
+      </div>
     </>
   );
 }
