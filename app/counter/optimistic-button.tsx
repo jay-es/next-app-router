@@ -1,9 +1,6 @@
 'use client';
 
-import {
-  experimental_useOptimistic as useOptimistic,
-  useTransition,
-} from 'react';
+import { useOptimistic, useTransition } from 'react';
 
 export function OptimisticButton({
   count,
@@ -24,7 +21,7 @@ export function OptimisticButton({
     <div className="flex gap-x-2">
       <button
         type="button"
-        className="btn-primary btn-sm btn"
+        className="btn-primary btn btn-sm"
         onClick={handleClick}
         disabled={pending}
       >

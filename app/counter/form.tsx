@@ -1,12 +1,12 @@
 'use client';
 
-import { experimental_useFormStatus as useFormStatus } from 'react-dom';
+import { useFormStatus } from 'react-dom';
 
 function SubmitButton() {
   const { pending } = useFormStatus();
 
   return (
-    <button type="submit" className="btn-primary btn-sm btn" disabled={pending}>
+    <button type="submit" className="btn-primary btn btn-sm" disabled={pending}>
       +1
     </button>
   );
