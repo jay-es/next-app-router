@@ -16,6 +16,9 @@ export default function Home() {
         <li>
           <Link href={`/counter`}>Counter</Link>
         </li>
+        <li>
+          <Link href={`/revalidate`}>Revalidate</Link>
+        </li>
       </ul>
     </>
   );
