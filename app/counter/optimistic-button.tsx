@@ -1,6 +1,6 @@
 'use client';
 
-import { useOptimistic, useTransition } from 'react';
+import { useEffect, useOptimistic, useTransition } from 'react';
 
 export function OptimisticButton({
   count,
@@ -10,11 +10,18 @@ export function OptimisticButton({
   addCount: () => Promise<void>;
 }) {
   const [pending, startTransition] = useTransition();
-  const [optimisticCount, addOptimisticCount] = useOptimistic(count);
+  const [optimisticCount, setOptimisticCount] = useOptimistic(count);
 
-  function handleClick() {
-    addOptimisticCount((state) => state + 1);
-    startTransition(addCount);
+  // 他のコンポーネントでも prop を変更するので、更新しないと表示がずれる
+  useEffect(() => {
+    startTransition(() => setOptimisticCount(count));
+  }, [count, setOptimisticCount]);
+
+  async function handleClick() {
+    startTransition(async () => {
+      setOptimisticCount((state) => state + 1);
+      await addCount();
+    });
   }
 
   return (

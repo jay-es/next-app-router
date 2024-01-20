@@ -29,7 +29,7 @@ export default async function Revalidate() {
     dynamicData: { cache: 'no-store' },
     staticData2: { next: { revalidate: false } },
     dynamicData2: { next: { revalidate: 0 } },
-    revalidatedData: { next: { revalidate: 3 } },
+    revalidatedData3s: { next: { revalidate: 3 } },
     // revalidatedData2: { cache: 'force-cache', next: { revalidate: 3 } }, // revalidate と cache を同時に指定すると warning になる
     taggedNone: { next: { revalidate: false, tags: [] } },
     taggedFoo: { next: { revalidate: false, tags: ['foo'] } },
@@ -61,9 +61,11 @@ export default async function Revalidate() {
         <Link href="revalidate/nested">refresh</Link>
         <RefreshButton />
         <p>
-          revalidatedDataは期限の後にアクセスすると古い値を返してから、データ再取得+キャッシュ更新する。
+          <code>revalidatedData3s</code>
+          は期限の後にアクセスすると古い値を返してから、データ再取得+キャッシュ更新する。
           <br />
-          revalidatePath, revalidateTag はルーターキャッシュが破棄される。
+          <code>revalidatePath()</code>, <code>revalidateTag()</code>
+          はルーターキャッシュが破棄される。
           <br />
         </p>
       </div>
